@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>鼠标放在li元素上会显示对应图片</title>
+</head>
+<style>
+.img-preview img{
+  width: 400px;
+  height: 400px;
+}
+</style>
+<body>
+   <ul class="ct">
+        <li data-img="https://i.loli.net/2018/03/20/5ab0981e95cbe.jpg">鼠标放置查看图片1</li>
+        <li data-img="https://i.loli.net/2018/03/20/5ab0994ceb1b4.jpg">鼠标放置查看图片2</li>
+        <li data-img="https://i.loli.net/2018/03/20/5ab0997497791.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+        function $(ele){
+            return document.querySelector(ele);
+        }
+        function $$(ele){
+            return document.querySelectorAll(ele)
+        }
+
+        $(".ct").addEventListener("mouseover",function(e){
+            if(e.target.tagName.toLowerCase()==="li"){
+                var imgSrc = e.target.getAttribute("data-img");
+                var imgEle = document.createElement("img");
+                imgEle.setAttribute("src",imgSrc);
+                $(".img-preview").appendChild(imgEle);
+            }
+        });
+        $(".ct").addEventListener("mouseout",function(e){
+            if(e.target.tagName.toLowerCase()==="li"){
+                $(".img-preview").innerHTML="";
+            }
+        })
+    </script>
+</body>
+</html>
