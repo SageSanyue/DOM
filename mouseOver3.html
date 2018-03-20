@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouseover</title>
+</head>
+<body>
+    <ul class="ct">
+        <li data-img="https://i.loli.net/2018/03/20/5ab0981e95cbe.jpg">鼠标放置查看图片1</li>
+        <li data-img="https://i.loli.net/2018/03/20/5ab0994ceb1b4.jpg">鼠标放置查看图片2</li>
+        <li data-img="https://i.loli.net/2018/03/20/5ab0997497791.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+        var ct = document.getElementsByClassName('ct')[0]
+        var preview = document.getElementsByClassName('img-preview')[0]
+        ct.addEventListener('mouseover' , function (e) {
+            var target = e.target
+            var dataImg = target.getAttribute('data-img')
+            if (e.target !== ct) {
+                preview.innerHTML = '<img src=" ' + dataImg + '">'
+            }
+        })
+    </script>
+</body>
+</html>
+
