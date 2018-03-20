@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>任务班</li>
+</ul>
+<input class="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+    var ct = document.getElementsByTagName('ul')[0];
+    var addStart = document.getElementById('btn-add-start');
+    var addEnd = document.getElementById('btn-add-end');
+    var content = document.getElementsByClassName('ipt-add-content')[0];
+    addStart.addEventListener('click', function(e) {
+        var el = document.createElement('li');
+        if (content.value) {
+            el.innerText = content.value;
+            ct.insertBefore(el, ct.firstChild);
+        } else {
+            alert('请输入内容!')
+        }
+        
+    })
+    addEnd.addEventListener('click', function(e) {
+        var el = document.createElement('li');
+        if (content.value) {
+            el.innerText = content.value;
+            ct.appendChild(el);
+        } else {
+            alert('请输入内容!')
+        }
+        
+    })
+    ct.addEventListener('click',function(e) {
+        console.log(e.target.innerText);
+    })
+</script>
+</body>
+</html>
